@@ -4,6 +4,20 @@ A series of scripts and tools to perform mitochondrial sequence, alignment and a
 
 The script `mtseq_processing.sh` details the process of creating appropriate index files, re-aligning to rCRS (if required), variant calling (generating vcf files) and creatation of fasta files. It also creates merged vcf and fasta files for batched experiments.
 
+## required software
+
+The pipeline requires a Linux environment (should probably run on MacOS, and 'maybe' on Linux-subsytem for Windows 10...). THe following software tools are required:
+
+  - samtools: http://www.htslib.org/
+  - bcftools: http://www.htslib.org/
+  - tabix: http://www.htslib.org/
+  - bwa: https://github.com/lh3/bwa
+  - GATK
+    - latest version (try running version 3.8 first before installing 4+): https://software.broadinstitute.org/gatk/download/
+    - version 3.8 (required to use `FastaAlternateReferenceMaker`): https://software.broadinstitute.org/gatk/download/auth?package=GATK-archive&version=3.8-1-0-gf15c1c3ef
+    
+**Note:** if you are comfortable installing Anaconda (https://www.anaconda.com/) I recommend using Bioconda (https://bioconda.github.io/) to install and maintain the above tools, it gives a lot of flexibility and easeof-use (i.e. it's fairly simple to create and maintain multiple environments based off different Python versions).
+
 ## example of running a single sample
 
 (note: further below is an edited version of a previous email which goes in depth on some issues and annotation)

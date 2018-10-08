@@ -56,19 +56,19 @@ At this point we are back to where we want to be before going into annotation.
 
 In terms of the QC and annotation I’ve added a few steps which I think provide some interesting outputs.
 
-#### haplogrep 2
+#### haplogrep 2 (https://haplogrep.uibk.ac.at/)
         
   - if you load the merged vcf file it will determine the haplotypes for each sample and also give you an idea of the accuracy and quality of the estimation.
     - you’ll see there are a few samples flagged in yellow and red - I suggest following these up (more on this later).
   -  you can output/export some nice information from here, including haplotype files and a phylogenetic tree with all your samples placed according to their mt haplotypes (very cool figure for your talks etc.).
   - generate/export a merged fasta file from here and you can import it into the next step.
 
-#### mitomaster
+#### mitomaster (https://mitomap.org/foswiki/bin/view/MITOMASTER/WebHome)
         
   - feeding the merged fasta file in should correctly annotate all variants.
   - you can export/download a cvs or excel file of the completed annotations which is really nice.
 
-#### mitosuite
+#### mitosuite (http://mitosuite.com/)
 
   - I’ve mentioned this tool before, it generates really nice QC results as well as haplotype calling and annotation.
   - I’ve spent too long trying to get this running on taurus:

@@ -13,10 +13,10 @@ The pipeline requires a Linux environment (should probably run on MacOS, and 'ma
   - tabix: http://www.htslib.org/
   - bwa: https://github.com/lh3/bwa
   - GATK
-    - latest version (try running version 3.8 first before installing 4+): https://software.broadinstitute.org/gatk/download/
     - version 3.8 (required to use `FastaAlternateReferenceMaker`): https://software.broadinstitute.org/gatk/download/auth?package=GATK-archive&version=3.8-1-0-gf15c1c3ef
+    - latest version (**try running version 3.8 first before installing 4+**): https://software.broadinstitute.org/gatk/download/
     
-**Note:** if you are comfortable installing Anaconda (https://www.anaconda.com/) I recommend using Bioconda (https://bioconda.github.io/) to install and maintain the above tools, it gives a lot of flexibility and easeof-use (i.e. it's fairly simple to create and maintain multiple environments based off different Python versions).
+**Note:** if you are comfortable installing Anaconda (https://www.anaconda.com/) I recommend using Bioconda (https://bioconda.github.io/) to install and maintain the above tools, it gives a lot of flexibility and ease-of-use (i.e. it's fairly simple to create and maintain multiple environments based off different Python versions).
 
 ## example of running a single sample
 

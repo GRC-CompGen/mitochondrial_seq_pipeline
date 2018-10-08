@@ -6,7 +6,7 @@ The script `mtseq_processing.sh` details the process of creating appropriate ind
 
 ## required software
 
-The pipeline requires a Linux environment (should probably run on MacOS, and 'maybe' on Linux-subsytem for Windows 10...). THe following software tools are required:
+The pipeline requires a Linux environment (should probably run on MacOS, and 'maybe' on Linux-subsytem for Windows 10...). The following software tools are required:
 
   - samtools: http://www.htslib.org/
   - bcftools: http://www.htslib.org/

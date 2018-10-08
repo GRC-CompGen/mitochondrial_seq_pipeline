@@ -4,7 +4,37 @@ A series of scripts and tools to perform mitochondrial sequence, alignment and a
 
 The script `mtseq_processing.sh` details the process of creating appropriate index files, re-aligning to rCRS (if required), variant calling (generating vcf files) and creatation of fasta files. It also creates merged vcf and fasta files for batched experiments.
 
-(note: the below is an edited version of a previous email)
+## example of running a single sample
+
+(note: further below is an edited version of a previous email which goes in depth on some issues and annotation)
+
+If you want to check you have the correct tools installed and that the pipeline will run you can attempt processing a single sample. Here is some example code:
+
+```sh
+## example 'pipeline' for a single sample
+
+# convert bam back to fastq
+samtools bam2fq NI_110050-run15.1-ix20.bam > NI_110050_mt.fq
+
+# align fastq to rCRS
+bwa mem -t 4 rCRS.fa NI_110050_mt.fq | samtools sort -O BAM -o NI_110050_mt.bam 
+
+# variant calling with left normalisation
+samtools mpileup -E -u -v -p -f rCRS.fa NI_110050_mt.bam | \
+  # normalise and call variants against ref genome
+  bcftools norm -f rCRS.fa -m +both -d both | \
+  bcftools call -v -m --ploidy 1 | \
+  bcftools norm -f rCRS.fa -m -both | \
+  bcftools norm -d both -O z -f rCRS.fa > NI_110050_mt.vcf.gz
+
+# index vcf file
+tabix NI_110050_mt.vcf.gz
+
+# create fasta file from vcf file
+java -jar ~/bin/GenomeAnalysisTK.jar -T FastaAlternateReferenceMaker -R rCRS.fa -o NI_110050_mt.fa --variant NI_110050_mt.vcf.gz
+```
+
+**NOTE:** the above code assumes that you have the correct references, indexes and directories (GATK), and that all files are in the current working directory. This is different to the pipeline, which requires specific directories to be present. 
 
 ## 'Issues' with the Ion Torrent reference sequence
 

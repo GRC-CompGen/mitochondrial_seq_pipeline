@@ -94,3 +94,7 @@ In terms of the QC and annotation I’ve added a few steps which I think provide
     - there is a constant lack of sequence observed in every sample at position 3106 - I’m wondering if this is one of the ‘placeholder’ bases in the reference genome.
     - when looking at heteroplasmy there are over-representations in similar positions (309,310), I think these may be due to deletions/insertions and we might need to follow this up by testing a few different aligners - this shouldn’t cause you issues just looking at single point variation but something to keep in mind.
     - there are a non-trivial amount of samples that have magnitudes lower sequence amount than the others, be careful when trying to call variants in these.
+    
+## Nuclear-Encoded Mitochondrial Proteins (NEMP) locations
+
+The file `NEMP_locations.txt` is a bed file that contains the genomic locations of all known nuclear-encoded mitochondrial genes/proteins. The current file is based off the human reference genome build **hg19**. Should you want to have the locations with **hg38** coordinates it is easy enough to download such in bed format from: http://genome.ucsc.edu/cgi-bin/hgTables (see this biostars post for more info: https://www.biostars.org/p/174331/) Once you have this file you just need to subset out the NEMP genes.
